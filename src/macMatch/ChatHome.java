@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,8 +31,14 @@ public class ChatHome
 			top = new JPanel();
 			top.setBackground(Color.WHITE);
 			top.setLayout(new BorderLayout());
-			ImageIcon banner = new ImageIcon("images/bannerIndex.png");
+			ImageIcon banner = new ImageIcon("images/bannerCHAT.png");
 			bannerImg = new JLabel(banner);
+			bannerImg.addMouseListener(new MouseAdapter(){
+				public void mousePressed(MouseEvent e){
+					new Home();
+					getChatHome().setVisible(false);
+				}
+			});
 			top.add(bannerImg, BorderLayout.NORTH);
 			
 			//create middle panels
@@ -104,7 +112,7 @@ public class ChatHome
 			
 			//create Frame
 			chatHome = new JFrame();
-			chatHome.setTitle("Index");
+			chatHome.setTitle("Chat");
 			chatHome.setSize(500, 500);
 			chatHome.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			chatHome.setVisible(true);

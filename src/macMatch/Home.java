@@ -15,7 +15,8 @@ import javax.swing.*;
 public class Home {
     //variables	
 	private JFrame home;
-	private JPanel homePanel, top, north, mid, btm, northLeft, northRight, midLeft, midRight, btmLeft, btmRight;
+	private JPanel homePanel, top, north, mid, btm, northLeft, northRight, 
+	midLeft, midRight, btmLeft, btmRight;
 	private JLabel bannerImg, profileImg, newsImg, matchesImg, chatImg, aboutImg, eventImg;
 	private JButton profileBtn, newsBtn, matchesBtn, chatBtn, aboutBtn, eventBtn;
 	
@@ -25,7 +26,7 @@ public class Home {
 		top = new JPanel();
 		top.setBackground(Color.WHITE);
 		top.setLayout(new BorderLayout());
-		ImageIcon banner = new ImageIcon("images/bannerIndex.png");
+		ImageIcon banner = new ImageIcon("images/bannerHOME.png");
 		bannerImg = new JLabel(banner);
 		top.add(bannerImg, BorderLayout.NORTH);
 		
@@ -36,11 +37,23 @@ public class Home {
 		northLeft.setLayout(new BorderLayout());
 		ImageIcon profile = new ImageIcon("images/profile.png");
 		profileImg = new JLabel(profile);
+		profileImg.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				new Profile();
+				getHome().setVisible(false);
+			}
+		});
 		profileBtn = new JButton("Profile");
 		profileBtn.setBackground(Color.WHITE);
 		profileBtn.setForeground(Color.BLACK);
 		profileBtn.setFont(new Font("Courier", Font.BOLD, 22));
 		profileBtn.setBorder(null);
+		profileBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new Profile();
+				getHome().setVisible(false);
+			}
+		});
 		//add to panel
 		northLeft.add(profileImg, BorderLayout.NORTH);
 		northLeft.add(profileBtn, BorderLayout.SOUTH);
@@ -50,11 +63,23 @@ public class Home {
 		northRight.setLayout(new BorderLayout());
 		ImageIcon news = new ImageIcon("images/news.png");
 		newsImg = new JLabel(news);
+		newsImg.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				new NewsFeed();
+				getHome().setVisible(false);
+			}
+		});
 		newsBtn = new JButton("Newsfeed");
 		newsBtn.setBackground(Color.WHITE);
 		newsBtn.setForeground(Color.BLACK);
 		newsBtn.setFont(new Font("Courier", Font.BOLD, 22));
 		newsBtn.setBorder(null);
+		newsBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new NewsFeed();
+				getHome().setVisible(false);
+			}
+		});
 		//add to panel
 		northRight.add(newsImg, BorderLayout.NORTH);
 		northRight.add(newsBtn, BorderLayout.SOUTH);
@@ -73,11 +98,23 @@ public class Home {
 		midLeft.setLayout(new BorderLayout());
 		ImageIcon matches = new ImageIcon("images/matches.png");
 		matchesImg = new JLabel(matches);
+		matchesImg.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				new Matches();
+				getHome().setVisible(false);
+			}
+		});
 		matchesBtn = new JButton("Matches");
 		matchesBtn.setBackground(Color.WHITE);
 		matchesBtn.setForeground(Color.BLACK);
 		matchesBtn.setFont(new Font("Courier", Font.BOLD, 22));
 		matchesBtn.setBorder(null);
+		matchesBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new Matches();
+				getHome().setVisible(false);
+			}
+		});
 		//add to panel
 		midLeft.add(matchesImg, BorderLayout.NORTH);
 		midLeft.add(matchesBtn, BorderLayout.SOUTH);
@@ -122,11 +159,23 @@ public class Home {
 		btmLeft.setLayout(new BorderLayout());
 		ImageIcon about = new ImageIcon("images/about.png");
 		aboutImg = new JLabel(about);
+		aboutImg.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				new About();
+				getHome().setVisible(false);
+			}
+		});
 		aboutBtn = new JButton("About Us");
 		aboutBtn.setBackground(Color.WHITE);
 		aboutBtn.setForeground(Color.BLACK);
 		aboutBtn.setFont(new Font("Courier", Font.BOLD, 22));
 		aboutBtn.setBorder(null);
+		aboutBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new About();
+				getHome().setVisible(false);
+			}
+		});
 		//add to panel
 		btmLeft.add(aboutImg, BorderLayout.NORTH);
 		btmLeft.add(aboutBtn, BorderLayout.SOUTH);
@@ -136,11 +185,23 @@ public class Home {
 		btmRight.setLayout(new BorderLayout());
 		ImageIcon event = new ImageIcon("images/event.png");
 		eventImg = new JLabel(event);
+		eventImg.addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
+				new Events();
+				getHome().setVisible(false);
+			}
+		});
 		eventBtn = new JButton("Events");
 		eventBtn.setBackground(Color.WHITE);
 		eventBtn.setForeground(Color.BLACK);
 		eventBtn.setFont(new Font("Courier", Font.BOLD, 22));
 		eventBtn.setBorder(null);
+		eventBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new Events();
+				getHome().setVisible(false);
+			}
+		});
 		//add to panel
 		btmRight.add(eventImg, BorderLayout.NORTH);
 		btmRight.add(eventBtn, BorderLayout.SOUTH);
@@ -164,7 +225,7 @@ public class Home {
 		
 		//create Frame
 		home = new JFrame();
-		home.setTitle("Index");
+		home.setTitle("Home");
 		home.setSize(500, 650);
 		home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		home.setVisible(true);
@@ -180,7 +241,5 @@ public class Home {
 	public void setHome(JFrame home) {
 		this.home = home;
 	}
-	
-	
 
 }

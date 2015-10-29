@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 
 import javax.swing.*;
 
@@ -40,6 +41,12 @@ public class Index {
 		signup.setForeground(Color.BLACK);
 		signup.setFont(new Font("Courier", Font.BOLD, 22));
 		signup.setBorder(null);
+		signup.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new SignUpHome();
+				getIndex().setVisible(false);
+			}
+		});
 		//add btn to panel
 		midMid.add(signup, BorderLayout.CENTER);
 		//midRight
